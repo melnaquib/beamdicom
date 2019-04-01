@@ -1,0 +1,20 @@
+entities:
+
+patient
+patient_id, name, dob, gender
+
+study
+patient_id, study_iuid, study_id, study_datetime
+
+series
+study_iuid, series_iuid, instance_count, modality
+
+sop
+series_iuid, instance_number
+
+logs (audits)
+
+
+add study_thumbnail , series_thumbnail,sop_thumbnail
+
+no relation

@@ -1,0 +1,10 @@
+<RCC>
+  <qresource prefix="/">
+    <file>res/images.qrc</file>
+    <file>res/ts.qrc</file>
+    <file>res/about.html</file>
+    <file>res/help.html</file>
+    <file>res/license.html</file>
+    <file>settings/defaultSettings.ini</file>
+  </qresource>
+</RCC>

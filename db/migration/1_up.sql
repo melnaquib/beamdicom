@@ -1,0 +1,6 @@
+CREATE TABLE `_META_INFO` (
+	`id`	INTEGER PRIMARY KEY,
+	`key`	TEXT UNIQUE,
+	`value`	TEXT
+);
+INSERT INTO `_META_INFO`(`key`, `value`) VALUES ('VERSION', '0');

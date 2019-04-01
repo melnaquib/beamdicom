@@ -1,0 +1,1 @@
+CREATE TABLE study_bkp_01 AS SELECT * FROM study WHERE 0;

@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+      <file>images/help_about.png</file>
+      <file>images/bacon.png</file>
+      <file>images/close.png</file>
+      <file>images/help_license.png</file>
+      <file>images/settings.png</file>
+      <file>images/import.png</file>
+      <file>images/view_switch.png</file>
+      <file>images/help.png</file>
+      <file>images/app_icon.png</file>
+      <file>images/bacon.png</file>
+    </qresource>
+</RCC>

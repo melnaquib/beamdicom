@@ -1,0 +1,15 @@
+<RCC>
+  <qresource>
+    <file>settings/defaultSettings.ini</file>
+    <file>resources/icons/1.png</file>
+    <file>resources/icons/settings.png</file>
+    <file>resources/icons/drag.png</file>
+    <file>resources/icons/top.png</file>
+    <file>resources/icons/top_16x16.png</file>
+    <file>resources/icons/top_24x24.png</file>
+    <file>resources/icons/top_32x32.png</file>
+    <file>resources/icons/top_48x48.png</file>
+    <file>resources/icons/top_48x48.ico</file>
+
+  </qresource>
+</RCC>

@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>images/icons/next.svg</file>
+        <file>images/icons/prev.svg</file>
+        <file>ViewerToolbar.qml</file>
+        <file>ViewerButton.qml</file>
+    </qresource>
+</RCC>

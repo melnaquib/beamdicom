@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>624</width>
+    <height>298</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="1" colspan="2">
+    <widget class="QGroupBox" name="conversiongroupBox">
+     <property name="title">
+      <string>Conversion</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="1" column="1">
+       <widget class="QComboBox" name="cnvFmtComboBox">
+        <item>
+         <property name="text">
+          <string>png</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>jpg</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>bmp</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>pdf</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="cnvDirLineEdit"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Format</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="cnvDirBrowsePushButton">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QCheckBox" name="removeDicomCheckBox">
+        <property name="text">
+         <string>Remove Dicom After Conversion</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0" rowspan="2" colspan="2">
+    <widget class="QGroupBox" name="directoriesgroupBox">
+     <property name="title">
+      <string>Directories</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Run Folder</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Log Folder</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Temp Folder</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="logFldrBtn">
+        <property name="text">
+         <string>.......</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="runFdrLineUnit"/>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="logFldrLineUnit"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="runFldrbtn">
+        <property name="text">
+         <string>.....</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="tmpFldrLineUnit"/>
+      </item>
+      <item row="2" column="2">
+       <widget class="QPushButton" name="tmpFldrBtn">
+        <property name="text">
+         <string>.......</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Storage Folder</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Case Folder Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="storageFldrLineUnit"/>
+      </item>
+      <item row="3" column="2">
+       <widget class="QPushButton" name="storageFldrBtn">
+        <property name="text">
+         <string>......</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1" colspan="2">
+       <widget class="QComboBox" name="foldernamemodFld">
+        <item>
+         <property name="text">
+          <string>Patient Name</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Patient ID</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Study IUID</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="dicomservergroupBox">
+     <property name="title">
+      <string>Dicom Server</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="0" column="0">
+       <widget class="DicomNetworkSettingWidget" name="dicomServerWidget" native="true"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Network</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_9">
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="ipAddressFld">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>Ip Address</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>DicomNetworkSettingWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">DicomNetworkSettingWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
