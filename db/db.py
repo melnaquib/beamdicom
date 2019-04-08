@@ -13,7 +13,8 @@ def db_name():
     s = QSettings()
     if not os.path.exists(s.value("storage/folder")):
         os.makedirs(s.value("storage/folder"))
-    return s.value("storage/folder") + QDir.separator() + "db.sqlite"
+    r = s.value("storage/folder") + QDir.separator() + "db.sqlite"
+    return r
 
 
 def _qconnect():

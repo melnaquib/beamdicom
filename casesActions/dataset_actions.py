@@ -28,6 +28,7 @@ def study_log(dataset,thumbnail):
     study_log.query.bindValue(':patient_id', dataset.PatientID)
     study_log.query.bindValue(':datetime', str(dataset.StudyDate))
     study_log.query.bindValue(':accession_no', dataset.AccessionNumber)
+    study_log.query.bindValue(':referring_physician', dataset.ReferringPhysician)
     study_log.query.bindValue(':status', CaseState.NEW.value)
     study_log.query.bindValue(':thumbnail', thumbnail)
     study_log.query.bindValue(':update_timestamp', QDateTime.currentDateTime().toMSecsSinceEpoch() / 1000)
@@ -67,7 +68,7 @@ def setup():
     patient_log.query.prepare(_PATIENT_INSERT_QUERY_STR)
 
     study_log.query = QSqlQuery()
-    _STUDY_INSERT_QUERY_STR = 'INSERT OR IGNORE INTO study(`study_iuid`, `patient_id`, `datetime`, `accession_no` , `status` ,`thumbnail` ,`update_timestamp` ,`workflow_phase`) VALUES(:study_iuid, :patient_id, :datetime, :accession_no, :status, :thumbnail, :update_timestamp , 0)'
+    _STUDY_INSERT_QUERY_STR = 'INSERT OR IGNORE INTO study(`study_iuid`, `patient_id`, `datetime`, `accession_no` , `status` ,`thumbnail` ,`update_timestamp`, `referring_physician`,`workflow_phase`) VALUES(:study_iuid, :patient_id, :datetime, :accession_no, :status, :thumbnail, :update_timestamp, :referring_physician, 0)'
     study_log.query.prepare(_STUDY_INSERT_QUERY_STR)
 
     study_log.update_query = QSqlQuery()
