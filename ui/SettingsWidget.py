@@ -26,12 +26,12 @@ class SettingsWidget(QWidget, Ui_Form):
         """
         super(SettingsWidget, self).__init__(parent)
         self.setupUi(self)
-        self.ipAddressFld.setText(" ".join(str(item) for item in utils.get_ip_address()))
+        # self.ipAddressFld.setText(" ".join(str(item) for item in utils.get_ip_address()))
         self.loadSettings()
         self.runFldrbtn.clicked.connect(lambda: self.openRunFolder(self.runFdrLineUnit))
         self.logFldrBtn.clicked.connect(lambda: self.openRunFolder(self.logFldrLineUnit))
         self.storageFldrBtn.clicked.connect(lambda: self.openRunFolder(self.storageFldrLineUnit))
-        self.tmpFldrBtn.clicked.connect(lambda: self.openRunFolder(self.tmpFldrLineUnit))
+        # self.tmpFldrBtn.clicked.connect(lambda: self.openRunFolder(self.tmpFldrLineUnit))
 
     def openRunFolder(self, widget):
         from PyQt5.QtWidgets import QFileDialog
@@ -51,13 +51,13 @@ class SettingsWidget(QWidget, Ui_Form):
         self.runFdrLineUnit.setText(settings.value("storage/run"))
         self.logFldrLineUnit.setText(settings.value("storage/log"))
         self.storageFldrLineUnit.setText(settings.value("storage/folder"))
-        self.tmpFldrLineUnit.setText(settings.value("storage/tmp"))
+        # self.tmpFldrLineUnit.setText(settings.value("storage/tmp"))
         foldermode = 'Study IUID'
         if settings.value("storage/foldername_mode") == 'PatientName':
             foldermode = 'Patient Name'
         elif settings.value("storage/foldername_mode") == 'PatientID':
             foldermode = 'Patient ID'
-        self.foldernamemodFld.setCurrentText(foldermode)
+        # self.foldernamemodFld.setCurrentText(foldermode)
 
         # self.dicomSenderWidget.aeTitleFiled.setText(settings.value("storescu/aet"))
         # self.dicomSenderWidget.maxPduField.setText(settings.value("storescu/max_pdu"))
@@ -89,10 +89,10 @@ class SettingsWidget(QWidget, Ui_Form):
         # self.targetPacs1Widget.ACSETimeoutField.setText(settings.value("targetStorescp1/acse_timeout"))
         # self.targetPacs1Widget.DIMSETimeoutField.setText(settings.value("targetStorescp1/dimse_timeout"))
 
-        self.cnvDirLineEdit.setText(settings.value("conversion/folder"))
-        self.cnvFmtComboBox.setCurrentText(settings.value("conversion/format"))
-        print(True if settings.value("conversion/dicom_remove") == 'true' else False)
-        self.removeDicomCheckBox.setChecked(True if settings.value("conversion/dicom_remove") == 'true' else False)
+        # self.cnvDirLineEdit.setText(settings.value("conversion/folder"))
+        # self.cnvFmtComboBox.setCurrentText(settings.value("conversion/format"))
+        # print(True if settings.value("conversion/dicom_remove") == 'true' else False)
+        # self.removeDicomCheckBox.setChecked(True if settings.value("conversion/dicom_remove") == 'true' else False)
 
     def accept(self):
         self.saveSettings()
@@ -130,22 +130,22 @@ class SettingsWidget(QWidget, Ui_Form):
         settings.setValue('storage/run', self.runFdrLineUnit.text())
         settings.setValue('storage/log', self.logFldrLineUnit.text())
         settings.setValue('storage/folder', self.storageFldrLineUnit.text())
-        settings.setValue('storage/tmp', self.tmpFldrLineUnit.text())
+        # settings.setValue('storage/tmp', self.tmpFldrLineUnit.text())
 
-        settings.setValue("conversion/folder", self.cnvDirLineEdit.text())
-        settings.setValue("conversion/format", self.cnvFmtComboBox.currentText())
-        settings.setValue("conversion/dicom_remove",self.removeDicomCheckBox.isChecked())
+        # settings.setValue("conversion/folder", self.cnvDirLineEdit.text())
+        # settings.setValue("conversion/format", self.cnvFmtComboBox.currentText())
+        # settings.setValue("conversion/dicom_remove",self.removeDicomCheckBox.isChecked())
         foldermode = 'Study Instance UID'
-        if self.foldernamemodFld.currentIndex() == 0:
-            foldermode = 'PatientName'
-        elif  self.foldernamemodFld.currentIndex() == 1:
-            foldermode = 'PatientID'
+        # if self.foldernamemodFld.currentIndex() == 0:
+        #     foldermode = 'PatientName'
+        # elif  self.foldernamemodFld.currentIndex() == 1:
+        #     foldermode = 'PatientID'
         settings.setValue("storage/foldername_mode",foldermode)
 
         settings.sync()
 
-    @pyqtSlot()
-    def on_cnvDirBrowsePushButton_clicked(self):
-        dirname = QFileDialog.getExistingDirectory()
-        if dirname:
-            self.cnvDirLineEdit.setText(dirname)
+    # @pyqtSlot()
+    # def on_cnvDirBrowsePushButton_clicked(self):
+    #     dirname = QFileDialog.getExistingDirectory()
+    #     if dirname:
+    #         self.cnvDirLineEdit.setText(dirname)

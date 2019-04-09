@@ -92,7 +92,8 @@ class StoreAE(AE):
         return callback(req, rsp, sopClass)
 
 
-def _on_c_store(dataset):
+def handle_store(event):
+    dataset = event.dataset
     try:
         logger.info('Received C-Store. Stn name %s, Modality %s, SOPClassUID %s, Study UID %s and Instance UID %s',
                 dataset.StationName , dataset.Modality, dataset.SOPClassUID, dataset.StudyInstanceUID, dataset.SOPInstanceUID)
@@ -141,19 +142,25 @@ def _on_c_store(dataset):
     ds.is_little_endian = True
     ds.is_implicit_VR = True
 
+    status_ds = Dataset()
+    status_ds.Status = 0x0000
+
     try:
         ds.save_as(filename)
         logger.info("File %s written", filename)
+        status_ds.Status = 0x0000
     except IOError:
         logger.warning('SAVE FAILED! FILE: ', filename)
         print('SAVE FAILED! FILE: ', filename)
-        return 0xA700 # Failed - Out of Resources
+        status_ds.Status = 0xA700
+        return status_ds # Failed - Out of Resources
     except:
-        return 0xA700 # Failed - Out of Resources
+        status_ds.Status = 0xA701
+        return status_ds # Failed - Out of Resources
     # print(filename)
     from casesActions import dataset_actions
     dataset_actions.on_dataset(pydicom.read_file(filename))
-    return sop_class.StorageServiceClass.Success # Success
+    return status_ds # Success
 
 def ae_run():
     transfer_syntax = [ImplicitVRLittleEndian,
@@ -200,9 +207,10 @@ def ae_run():
     ae.maximum_associations = 70
 
     logger.info('AE properties: ae={}, port={}'.format(ae_title,ae_port))
-    ae.on_c_store = _on_c_store
+    # ae.on_c_store = _on_c_store
+    handlers = [(evt.EVT_C_STORE, handle_store)]
     try:
-        ae.start_server((ae_title,ae_port))
+        ae.start_server((ae_title,ae_port), evt_handlers=handlers)
         logger.info(' "Started AE... AET:{0}, port:{1}".format(aet, port)')
     except PermissionError as pe:
         logger.critical('AE cannot start (PermissionError)', exc_info=True)
