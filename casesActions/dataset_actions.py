@@ -6,7 +6,7 @@ from PyQt5.QtCore import QVariant, QDateTime
 from enum import Enum
 import logging, sys
 
-logger = logging.getLogger('dicomrouter')
+logger = logging.getLogger('beamdicom')
 
 class CaseState(Enum):
     NEW = 0
@@ -28,7 +28,7 @@ def study_log(dataset,thumbnail):
     study_log.query.bindValue(':patient_id', dataset.PatientID)
     study_log.query.bindValue(':datetime', str(dataset.StudyDate))
     study_log.query.bindValue(':accession_no', dataset.AccessionNumber)
-    study_log.query.bindValue(':referring_physician', dataset.ReferringPhysician)
+    study_log.query.bindValue(':referring_physician', dataset.ReferringPhysicianName)
     study_log.query.bindValue(':status', CaseState.NEW.value)
     study_log.query.bindValue(':thumbnail', thumbnail)
     study_log.query.bindValue(':update_timestamp', QDateTime.currentDateTime().toMSecsSinceEpoch() / 1000)

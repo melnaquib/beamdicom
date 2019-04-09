@@ -121,16 +121,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.timer.setSingleShot(False)
         self.timer.start(_UPDATEUI_TIMEOUT)
 
-        self.searchBtn.clicked.connect(self.search)
-        self.cancelBtn.clicked.connect(self.cancel_search)
+        # self.searchBtn.clicked.connect(self.search)
+        # self.cancelBtn.clicked.connect(self.cancel_search)
 
 
 
 
 
 
-        self.patientIDSearchFld.returnPressed.connect(self.search)
-        self.patientNameSearchFld.returnPressed.connect(self.search)
+        # self.patientIDSearchFld.returnPressed.connect(self.search)
+        # self.patientNameSearchFld.returnPressed.connect(self.search)
 
         self.set_cases_images_count()
 
@@ -188,11 +188,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def set_cases_images_count(self):
         query = QSqlQuery()
         query.exec(_TOTAL_CASES)
-        while (query.next()):
-            self.totalCasesLabel.setText('Total Cases : ' + str(query.value(0)))
+        # while (query.next()):
+        #     self.totalCasesLabel.setText('Total Cases : ' + str(query.value(0)))
         query.exec(_TOTAL_IMAGES)
-        while (query.next()):
-            self.totalImagesLabel.setText('Total Images : ' + str(query.value(0)))
+        # while (query.next()):
+        #     self.totalImagesLabel.setText('Total Images : ' + str(query.value(0)))
 
     @pyqtSlot()
     def on_action_Settings_triggered(self):
