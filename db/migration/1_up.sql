@@ -1,6 +1,7 @@
-CREATE TABLE `_META_INFO` (
-	`id`	INTEGER PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS `_META_INFO` (
+	`id`	INTEGER,
 	`key`	TEXT UNIQUE,
-	`value`	TEXT
+	`value`	TEXT,
+	PRIMARY KEY(`id`)
 );
 INSERT INTO `_META_INFO`(`key`, `value`) VALUES ('VERSION', '0');

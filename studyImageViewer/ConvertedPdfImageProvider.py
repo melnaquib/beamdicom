@@ -2,8 +2,6 @@ from PyQt5.QtQuick import QQuickImageProvider
 from PyQt5.QtGui import QPixmap, QColor
 from PyQt5.QtCore import QSize, QDir, QFileInfo, QUrl, QFile
 
-import PyPDF2
-
 import logging
 
 logger = logging.getLogger(__name__)

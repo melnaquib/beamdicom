@@ -30,7 +30,7 @@ from storage.pathes import get_storage_folder, get_folder_mode
 import os
 
 from pynetdicom import (
-    AE, evt,
+    AE,
     StoragePresentationContexts,
     VerificationPresentationContexts)
 
