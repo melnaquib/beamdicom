@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\work\code\dicom_router\ui\mainwindow.ui'
+# Form implementation generated from reading ui file '/home/melnaquib/work/client/reportly/code/beamdicom/ui/mainwindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -108,7 +108,6 @@ class Ui_MainWindow(object):
         self.page = QtWidgets.QWidget()
         self.page.setObjectName("page")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.page)
-        self.gridLayout_4.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_4.setObjectName("gridLayout_4")
         self.studiesBriefTableView = QtWidgets.QTableView(self.page)
         self.studiesBriefTableView.setStyleSheet("QTableView {\n"
@@ -141,7 +140,6 @@ class Ui_MainWindow(object):
         self.page_2 = QtWidgets.QWidget()
         self.page_2.setObjectName("page_2")
         self.gridLayout_5 = QtWidgets.QGridLayout(self.page_2)
-        self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_5.setObjectName("gridLayout_5")
         self.studiesTableView = QtWidgets.QTableView(self.page_2)
         self.studiesTableView.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)

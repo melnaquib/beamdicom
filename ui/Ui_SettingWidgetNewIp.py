@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\work\code\dicom_router\ui\SettingWidgetNewIp.ui'
+# Form implementation generated from reading ui file '/home/melnaquib/work/client/reportly/code/beamdicom/ui/SettingWidgetNewIp.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -23,7 +23,6 @@ class Ui_Form(object):
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 953, 724))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.gridLayout_8 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
-        self.gridLayout_8.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_8.setObjectName("gridLayout_8")
         self.dicomservergroupBox = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
         self.dicomservergroupBox.setObjectName("dicomservergroupBox")

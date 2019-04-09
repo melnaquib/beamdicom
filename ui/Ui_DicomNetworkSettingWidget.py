@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\work\code\dicom_router\ui\DicomNetworkSettingWidget.ui'
+# Form implementation generated from reading ui file '/home/melnaquib/work/client/reportly/code/beamdicom/ui/DicomNetworkSettingWidget.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 

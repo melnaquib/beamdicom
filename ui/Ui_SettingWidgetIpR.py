@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\work\code\dicom_router\ui\SettingWidgetIpR.ui'
+# Form implementation generated from reading ui file '/home/melnaquib/work/client/reportly/code/beamdicom/ui/SettingWidgetIpR.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -141,7 +141,7 @@ class Ui_Form(object):
         self.groupBox.setTitle(_translate("Form", "Network"))
         self.label_7.setText(_translate("Form", "Ip Address"))
 
-from ui.DicomNetworkSettingWidget import DicomNetworkSettingWidget
+from DicomNetworkSettingWidget import DicomNetworkSettingWidget
 
 if __name__ == "__main__":
     import sys

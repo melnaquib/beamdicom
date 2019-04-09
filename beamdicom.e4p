@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project beamdicom -->
-<!-- Saved: 2019-04-04, 05:24:09 -->
+<!-- Saved: 2019-04-08, 15:34:26 -->
 <!-- Copyright (C) 2019 ,  -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -50,6 +50,7 @@
     <Source>ui/DicomNetworkSettingWidget.py</Source>
     <Source>ui/HtmlContent.py</Source>
     <Source>ui/SettingsWidget.py</Source>
+    <Source>ui/SqlTableView.py</Source>
     <Source>ui/StudiesProxyModel.py</Source>
     <Source>ui/StudyItemDelegate.py</Source>
     <Source>ui/StudyItemWidget.py</Source>
@@ -59,6 +60,7 @@
     <Source>ui/Ui_SettingWidgetNew.py</Source>
     <Source>ui/Ui_SettingWidgetNewIp.py</Source>
     <Source>ui/Ui_SettingsWidget.py</Source>
+    <Source>ui/Ui_SqlTableView.py</Source>
     <Source>ui/Ui_StudyItemWidget.py</Source>
     <Source>ui/Ui_WrapperDialog.py</Source>
     <Source>ui/Ui_mainwindow.py</Source>
@@ -77,6 +79,7 @@
     <Form>ui/SettingWidgetNew.ui</Form>
     <Form>ui/SettingWidgetNewIp.ui</Form>
     <Form>ui/SettingsWidget.ui</Form>
+    <Form>ui/SqlTableView.ui</Form>
     <Form>ui/StudyItemWidget.ui</Form>
     <Form>ui/WrapperDialog.ui</Form>
     <Form>ui/mainwindow.ui</Form>

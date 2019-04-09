@@ -25,10 +25,10 @@ CREATE TABLE IF NOT EXISTS `serie` (
 );
 CREATE TABLE IF NOT EXISTS `routes` (
 	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
-	`referring_physician`	TEXT,
 	`address`	TEXT,
 	`port`	INTEGER,
-	`aet`	TEXT
+	`aet`	TEXT,
+	`referring_physician`	TEXT
 );
 CREATE TABLE IF NOT EXISTS `patient` (
 	`patient_id`	TEXT UNIQUE,
