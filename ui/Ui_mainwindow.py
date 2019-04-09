@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/media/abdelrahman/data1/mywork/code/PycharmProjects/beam.dicom/ui/mainwindow.ui'
+# Form implementation generated from reading ui file '/home/melnaquib/work/client/reportly/code/beamdicom/ui/mainwindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.12.1
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -21,77 +20,6 @@ class Ui_MainWindow(object):
         self.centralWidget.setObjectName("centralWidget")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.centralWidget)
         self.gridLayout_3.setObjectName("gridLayout_3")
-        self.groupBox = QtWidgets.QGroupBox(self.centralWidget)
-        self.groupBox.setObjectName("groupBox")
-        self.gridLayout_2 = QtWidgets.QGridLayout(self.groupBox)
-        self.gridLayout_2.setObjectName("gridLayout_2")
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_2.addItem(spacerItem, 0, 2, 1, 1)
-        self.gridLayout = QtWidgets.QGridLayout()
-        self.gridLayout.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
-        self.gridLayout.setHorizontalSpacing(1)
-        self.gridLayout.setObjectName("gridLayout")
-        self.patientNameSearchFld = QtWidgets.QLineEdit(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.patientNameSearchFld.sizePolicy().hasHeightForWidth())
-        self.patientNameSearchFld.setSizePolicy(sizePolicy)
-        self.patientNameSearchFld.setMinimumSize(QtCore.QSize(200, 0))
-        self.patientNameSearchFld.setMaximumSize(QtCore.QSize(400, 16777215))
-        self.patientNameSearchFld.setObjectName("patientNameSearchFld")
-        self.gridLayout.addWidget(self.patientNameSearchFld, 1, 1, 1, 1)
-        self.patientIDSearchFld = QtWidgets.QLineEdit(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.patientIDSearchFld.sizePolicy().hasHeightForWidth())
-        self.patientIDSearchFld.setSizePolicy(sizePolicy)
-        self.patientIDSearchFld.setMinimumSize(QtCore.QSize(200, 0))
-        self.patientIDSearchFld.setMaximumSize(QtCore.QSize(400, 16777215))
-        self.patientIDSearchFld.setObjectName("patientIDSearchFld")
-        self.gridLayout.addWidget(self.patientIDSearchFld, 0, 1, 1, 1)
-        self.label_2 = QtWidgets.QLabel(self.groupBox)
-        self.label_2.setMaximumSize(QtCore.QSize(200, 16777215))
-        self.label_2.setObjectName("label_2")
-        self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
-        self.label = QtWidgets.QLabel(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
-        self.label.setSizePolicy(sizePolicy)
-        self.label.setMaximumSize(QtCore.QSize(200, 16777215))
-        self.label.setObjectName("label")
-        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
-        self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
-        self.verticalLayout = QtWidgets.QVBoxLayout()
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.searchBtn = QtWidgets.QPushButton(self.groupBox)
-        self.searchBtn.setObjectName("searchBtn")
-        self.verticalLayout.addWidget(self.searchBtn)
-        self.cancelBtn = QtWidgets.QPushButton(self.groupBox)
-        self.cancelBtn.setObjectName("cancelBtn")
-        self.verticalLayout.addWidget(self.cancelBtn)
-        self.gridLayout_2.addLayout(self.verticalLayout, 0, 1, 1, 1)
-        self.frame = QtWidgets.QFrame(self.groupBox)
-        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame.setObjectName("frame")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.frame)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.totalCasesLabel = QtWidgets.QLabel(self.frame)
-        self.totalCasesLabel.setText("")
-        self.totalCasesLabel.setObjectName("totalCasesLabel")
-        self.verticalLayout_2.addWidget(self.totalCasesLabel)
-        self.totalImagesLabel = QtWidgets.QLabel(self.frame)
-        self.totalImagesLabel.setText("")
-        self.totalImagesLabel.setObjectName("totalImagesLabel")
-        self.verticalLayout_2.addWidget(self.totalImagesLabel)
-        self.gridLayout_2.addWidget(self.frame, 0, 4, 1, 1)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_2.addItem(spacerItem1, 0, 3, 1, 1)
-        self.gridLayout_3.addWidget(self.groupBox, 0, 0, 1, 1)
         self.studiesStackedWidget = QtWidgets.QStackedWidget(self.centralWidget)
         self.studiesStackedWidget.setObjectName("studiesStackedWidget")
         self.page = QtWidgets.QWidget()
@@ -137,7 +65,7 @@ class Ui_MainWindow(object):
         self.studiesTableView.setObjectName("studiesTableView")
         self.gridLayout_5.addWidget(self.studiesTableView, 0, 0, 1, 1)
         self.studiesStackedWidget.addWidget(self.page_2)
-        self.gridLayout_3.addWidget(self.studiesStackedWidget, 1, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.studiesStackedWidget, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralWidget)
         self.menuBar = QtWidgets.QMenuBar(MainWindow)
         self.menuBar.setGeometry(QtCore.QRect(0, 0, 1302, 23))
@@ -213,6 +141,10 @@ class Ui_MainWindow(object):
         self.action_Quit.setObjectName("action_Quit")
         self.actionDelete_Study_Folder = QtWidgets.QAction(MainWindow)
         self.actionDelete_Study_Folder.setObjectName("actionDelete_Study_Folder")
+        self.rou_tes_ViewAction = QtWidgets.QAction(MainWindow)
+        self.rou_tes_ViewAction.setCheckable(True)
+        self.rou_tes_ViewAction.setIcon(icon8)
+        self.rou_tes_ViewAction.setObjectName("rou_tes_ViewAction")
         self.menu_File.addAction(self.action_Exit)
         self.menu_Help.addAction(self.action_About)
         self.menuBar.addAction(self.menu_File.menuAction())
@@ -220,23 +152,18 @@ class Ui_MainWindow(object):
         self.menuBar.addAction(self.menu_Help.menuAction())
         self.toolBar.addAction(self.action_About)
         self.toolBar.addAction(self.action_License)
-        self.toolBar.addAction(self.actionImport)
+        self.toolBar.addAction(self.rou_tes_ViewAction)
         self.toolBar.addAction(self.action_Help)
         self.toolBar.addAction(self.action_Settings)
         self.toolBar.addAction(self.action_Exit)
 
         self.retranslateUi(MainWindow)
-        self.studiesStackedWidget.setCurrentIndex(1)
+        self.studiesStackedWidget.setCurrentIndex(0)
         self.actionShow_DicomRouter.toggled['bool'].connect(MainWindow.setVisible)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        self.groupBox.setTitle(_translate("MainWindow", "Search:"))
-        self.label_2.setText(_translate("MainWindow", "Patient Name:"))
-        self.label.setText(_translate("MainWindow", "Patient ID:"))
-        self.searchBtn.setText(_translate("MainWindow", "Search"))
-        self.cancelBtn.setText(_translate("MainWindow", "Cancel"))
         self.menu_File.setTitle(_translate("MainWindow", "&File"))
         self.menu_Tools.setTitle(_translate("MainWindow", "&Tools"))
         self.menu_Help.setTitle(_translate("MainWindow", "&Help"))
@@ -258,10 +185,9 @@ class Ui_MainWindow(object):
         self.action_Quit.setText(_translate("MainWindow", "Quit"))
         self.action_Quit.setToolTip(_translate("MainWindow", "Quit"))
         self.actionDelete_Study_Folder.setText(_translate("MainWindow", "Delete Study"))
-
+        self.rou_tes_ViewAction.setText(_translate("MainWindow", "Rou&tes View"))
 
 import images_rc
-
 
 if __name__ == "__main__":
     import sys
@@ -271,3 +197,4 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+

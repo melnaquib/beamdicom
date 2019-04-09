@@ -575,6 +575,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         #     viewImages.open_study_images(study_iuid)
 
 
+    @pyqtSlot()
+    def on_rou_tes_ViewAction_checkedChanged(self, value):
+        idx = 2 if value else 0
+        self.studiesStackedWidget.setCurrentIndex(idx)
+        # from ui.SettingsWidget import SettingsWidget
+        # from ui.WrapperDialog import WrapperDialog
+        # dlg = WrapperDialog()
+        # dlg.setWidget(SettingsWidget())
+        # dlg.exec_()
+
+
 
 class FileDialog(QFileDialog):
     def __init__(self, *args, **kwargs):
