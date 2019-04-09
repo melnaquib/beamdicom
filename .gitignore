@@ -60,3 +60,4 @@ build-*/
 
 .idea/beam.dicom.iml
 thirdparty/*
+.idea/*.xml

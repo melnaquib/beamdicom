@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/melnaquib/work/client/reportly/code/beamdicom/ui/mainwindow.ui'
+# Form implementation generated from reading ui file '/media/abdelrahman/data1/mywork/code/PycharmProjects/beam.dicom/ui/mainwindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.10.1
+# Created by: PyQt5 UI code generator 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -26,18 +27,6 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setObjectName("gridLayout_2")
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_2.addItem(spacerItem, 0, 2, 1, 1)
-        self.image_label = QtWidgets.QLabel(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Ignored)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.image_label.sizePolicy().hasHeightForWidth())
-        self.image_label.setSizePolicy(sizePolicy)
-        self.image_label.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        self.image_label.setText("")
-        self.image_label.setPixmap(QtGui.QPixmap(":/images/bacon.png"))
-        self.image_label.setScaledContents(True)
-        self.image_label.setObjectName("image_label")
-        self.gridLayout_2.addWidget(self.image_label, 0, 3, 1, 1)
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
         self.gridLayout.setHorizontalSpacing(1)
@@ -99,9 +88,9 @@ class Ui_MainWindow(object):
         self.totalImagesLabel.setText("")
         self.totalImagesLabel.setObjectName("totalImagesLabel")
         self.verticalLayout_2.addWidget(self.totalImagesLabel)
-        self.gridLayout_2.addWidget(self.frame, 0, 5, 1, 1)
+        self.gridLayout_2.addWidget(self.frame, 0, 4, 1, 1)
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_2.addItem(spacerItem1, 0, 4, 1, 1)
+        self.gridLayout_2.addItem(spacerItem1, 0, 3, 1, 1)
         self.gridLayout_3.addWidget(self.groupBox, 0, 0, 1, 1)
         self.studiesStackedWidget = QtWidgets.QStackedWidget(self.centralWidget)
         self.studiesStackedWidget.setObjectName("studiesStackedWidget")
@@ -151,7 +140,7 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addWidget(self.studiesStackedWidget, 1, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralWidget)
         self.menuBar = QtWidgets.QMenuBar(MainWindow)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 1302, 21))
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 1302, 23))
         self.menuBar.setObjectName("menuBar")
         self.menu_File = QtWidgets.QMenu(self.menuBar)
         self.menu_File.setObjectName("menu_File")
@@ -214,12 +203,6 @@ class Ui_MainWindow(object):
         icon8.addPixmap(QtGui.QPixmap(":/images/import.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionImport.setIcon(icon8)
         self.actionImport.setObjectName("actionImport")
-        self.actionSwitch_View = QtWidgets.QAction(MainWindow)
-        self.actionSwitch_View.setCheckable(True)
-        icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap(":/images/view_switch.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.actionSwitch_View.setIcon(icon9)
-        self.actionSwitch_View.setObjectName("actionSwitch_View")
         self.actionShow_DicomRouter = QtWidgets.QAction(MainWindow)
         self.actionShow_DicomRouter.setCheckable(True)
         self.actionShow_DicomRouter.setChecked(True)
@@ -237,7 +220,6 @@ class Ui_MainWindow(object):
         self.menuBar.addAction(self.menu_Help.menuAction())
         self.toolBar.addAction(self.action_About)
         self.toolBar.addAction(self.action_License)
-        self.toolBar.addAction(self.actionSwitch_View)
         self.toolBar.addAction(self.actionImport)
         self.toolBar.addAction(self.action_Help)
         self.toolBar.addAction(self.action_Settings)
@@ -272,13 +254,14 @@ class Ui_MainWindow(object):
         self.actionStudyViewMode.setText(_translate("MainWindow", "Study View Mode"))
         self.actionStudyViewMode.setToolTip(_translate("MainWindow", "Study View Mode"))
         self.actionImport.setText(_translate("MainWindow", "Import"))
-        self.actionSwitch_View.setText(_translate("MainWindow", "Switch View"))
         self.actionShow_DicomRouter.setText(_translate("MainWindow", "Show DicomRouter"))
         self.action_Quit.setText(_translate("MainWindow", "Quit"))
         self.action_Quit.setToolTip(_translate("MainWindow", "Quit"))
         self.actionDelete_Study_Folder.setText(_translate("MainWindow", "Delete Study"))
 
+
 import images_rc
+
 
 if __name__ == "__main__":
     import sys
@@ -288,4 +271,3 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-

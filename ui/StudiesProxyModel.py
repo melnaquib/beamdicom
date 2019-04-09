@@ -34,7 +34,7 @@ class StudiesProxyModel(QSortFilterProxyModel):
                 year = studydate[:4]
                 month = studydate[4:6]
                 day = studydate[6:8]
-                studydate  = QDate(int(year),int(month), int(day)).toString("MM-dd-yyyy")
+                # studydate  = QDate(int(year),int(month), int(day)).toString("MM-dd-yyyy")
                 # studydate = month + '-' + day + '-' + year
                 return studydate
 

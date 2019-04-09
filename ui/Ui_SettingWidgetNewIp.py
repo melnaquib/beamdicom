@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/melnaquib/work/client/reportly/code/beamdicom/ui/SettingWidgetNewIp.ui'
+# Form implementation generated from reading ui file '/media/abdelrahman/data1/mywork/code/PycharmProjects/beam.dicom/ui/SettingWidgetNewIp.ui'
 #
-# Created by: PyQt5 UI code generator 5.10.1
+# Created by: PyQt5 UI code generator 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -63,9 +64,6 @@ class Ui_Form(object):
         self.storageFldrBtn = QtWidgets.QPushButton(self.directoriesgroupBox)
         self.storageFldrBtn.setObjectName("storageFldrBtn")
         self.gridLayout_2.addWidget(self.storageFldrBtn, 3, 2, 1, 1)
-        self.label_6 = QtWidgets.QLabel(self.directoriesgroupBox)
-        self.label_6.setObjectName("label_6")
-        self.gridLayout_2.addWidget(self.label_6, 4, 0, 1, 1)
         self.label_3 = QtWidgets.QLabel(self.directoriesgroupBox)
         self.label_3.setObjectName("label_3")
         self.gridLayout_2.addWidget(self.label_3, 3, 0, 1, 1)
@@ -81,12 +79,6 @@ class Ui_Form(object):
         self.label = QtWidgets.QLabel(self.directoriesgroupBox)
         self.label.setObjectName("label")
         self.gridLayout_2.addWidget(self.label, 0, 0, 1, 1)
-        self.comboBox = QtWidgets.QComboBox(self.directoriesgroupBox)
-        self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.gridLayout_2.addWidget(self.comboBox, 4, 1, 1, 2)
         self.tmpFldrLineUnit = QtWidgets.QLineEdit(self.directoriesgroupBox)
         self.tmpFldrLineUnit.setObjectName("tmpFldrLineUnit")
         self.gridLayout_2.addWidget(self.tmpFldrLineUnit, 2, 1, 1, 1)
@@ -108,30 +100,6 @@ class Ui_Form(object):
         self.gridLayout_8.addWidget(self.directoriesgroupBox, 2, 0, 1, 1)
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
-        self.conversiongroupBox = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
-        self.conversiongroupBox.setObjectName("conversiongroupBox")
-        self.gridLayout_3 = QtWidgets.QGridLayout(self.conversiongroupBox)
-        self.gridLayout_3.setObjectName("gridLayout_3")
-        self.cnvFmtComboBox = QtWidgets.QComboBox(self.conversiongroupBox)
-        self.cnvFmtComboBox.setObjectName("cnvFmtComboBox")
-        self.cnvFmtComboBox.addItem("")
-        self.cnvFmtComboBox.addItem("")
-        self.cnvFmtComboBox.addItem("")
-        self.cnvFmtComboBox.addItem("")
-        self.gridLayout_3.addWidget(self.cnvFmtComboBox, 1, 1, 1, 1)
-        self.label_5 = QtWidgets.QLabel(self.conversiongroupBox)
-        self.label_5.setObjectName("label_5")
-        self.gridLayout_3.addWidget(self.label_5, 1, 0, 1, 1)
-        self.cnvDirBrowsePushButton = QtWidgets.QPushButton(self.conversiongroupBox)
-        self.cnvDirBrowsePushButton.setObjectName("cnvDirBrowsePushButton")
-        self.gridLayout_3.addWidget(self.cnvDirBrowsePushButton, 0, 0, 1, 1)
-        self.cnvDirLineEdit = QtWidgets.QLineEdit(self.conversiongroupBox)
-        self.cnvDirLineEdit.setObjectName("cnvDirLineEdit")
-        self.gridLayout_3.addWidget(self.cnvDirLineEdit, 0, 1, 1, 1)
-        self.removeDicomCheckBox = QtWidgets.QCheckBox(self.conversiongroupBox)
-        self.removeDicomCheckBox.setObjectName("removeDicomCheckBox")
-        self.gridLayout_3.addWidget(self.removeDicomCheckBox, 2, 1, 1, 1)
-        self.verticalLayout.addWidget(self.conversiongroupBox)
         self.groupBox = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
         self.groupBox.setObjectName("groupBox")
         self.gridLayout_9 = QtWidgets.QGridLayout(self.groupBox)
@@ -159,29 +127,19 @@ class Ui_Form(object):
         self.targerpacs2groupBox.setTitle(_translate("Form", "Target Pacs 2"))
         self.directoriesgroupBox.setTitle(_translate("Form", "Directories"))
         self.storageFldrBtn.setText(_translate("Form", "......"))
-        self.label_6.setText(_translate("Form", "Case Folder Name"))
         self.label_3.setText(_translate("Form", "Storage Folder"))
         self.logFldrBtn.setText(_translate("Form", "......."))
         self.runFldrbtn.setText(_translate("Form", "....."))
         self.label.setText(_translate("Form", "Run Folder"))
-        self.comboBox.setItemText(0, _translate("Form", "Last Name"))
-        self.comboBox.setItemText(1, _translate("Form", "Patient ID"))
-        self.comboBox.setItemText(2, _translate("Form", "Date"))
         self.label_2.setText(_translate("Form", "Log Folder"))
         self.tmpFldrBtn.setText(_translate("Form", "......."))
         self.label_4.setText(_translate("Form", "Temp Folder"))
-        self.conversiongroupBox.setTitle(_translate("Form", "Conversion"))
-        self.cnvFmtComboBox.setItemText(0, _translate("Form", "png"))
-        self.cnvFmtComboBox.setItemText(1, _translate("Form", "jpg"))
-        self.cnvFmtComboBox.setItemText(2, _translate("Form", "bmp"))
-        self.cnvFmtComboBox.setItemText(3, _translate("Form", "pdf"))
-        self.label_5.setText(_translate("Form", "Format"))
-        self.cnvDirBrowsePushButton.setText(_translate("Form", "Browse..."))
-        self.removeDicomCheckBox.setText(_translate("Form", "Remove Dicom After Conversion"))
         self.groupBox.setTitle(_translate("Form", "Network"))
         self.label_7.setText(_translate("Form", "Ip Address"))
 
+
 from DicomNetworkSettingWidget import DicomNetworkSettingWidget
+
 
 if __name__ == "__main__":
     import sys
@@ -191,4 +149,3 @@ if __name__ == "__main__":
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
-
