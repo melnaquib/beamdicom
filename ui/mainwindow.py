@@ -15,6 +15,7 @@ from numpy.core.records import record
 
 from storage import pathes
 from casesActions.study_actions import on_study
+from ui.SqlTableView import SqlTableView
 from ui.StudiesProxyModel import StudiesProxyModel
 from ui.Ui_mainwindow import Ui_MainWindow
 from pydicom.dataset import Dataset, FileDataset
@@ -121,16 +122,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.timer.setSingleShot(False)
         self.timer.start(_UPDATEUI_TIMEOUT)
 
-        self.searchBtn.clicked.connect(self.search)
-        self.cancelBtn.clicked.connect(self.cancel_search)
+        # self.searchBtn.clicked.connect(self.search)
+        # self.cancelBtn.clicked.connect(self.cancel_search)
 
 
 
 
 
 
-        self.patientIDSearchFld.returnPressed.connect(self.search)
-        self.patientNameSearchFld.returnPressed.connect(self.search)
+        # self.patientIDSearchFld.returnPressed.connect(self.search)
+        # self.patientNameSearchFld.returnPressed.connect(self.search)
 
         self.set_cases_images_count()
 
@@ -150,6 +151,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.aboutDialog = HtmlContent(self)
         self.helpDialog = HtmlContent(self)
         self.licenseDialog = HtmlContent(self)
+
+
+        self.routeTable = SqlTableView(self)
+        self.studiesStackedWidget.addWidget(self.routeTable)
+        self.routeTable.setModel(qApp.property("router").routesModel())
 
 
     def hidecols(self):
@@ -186,6 +192,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.hidecols()
 
     def set_cases_images_count(self):
+        return
         query = QSqlQuery()
         query.exec(_TOTAL_CASES)
         while (query.next()):
@@ -575,16 +582,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         #     viewImages.open_study_images(study_iuid)
 
 
-    @pyqtSlot()
-    def on_rou_tes_ViewAction_checkedChanged(self, value):
+    @pyqtSlot(bool)
+    def on_rou_tes_ViewAction_toggled(self, value):
         idx = 2 if value else 0
         self.studiesStackedWidget.setCurrentIndex(idx)
-        # from ui.SettingsWidget import SettingsWidget
-        # from ui.WrapperDialog import WrapperDialog
-        # dlg = WrapperDialog()
-        # dlg.setWidget(SettingsWidget())
-        # dlg.exec_()
-
 
 
 class FileDialog(QFileDialog):

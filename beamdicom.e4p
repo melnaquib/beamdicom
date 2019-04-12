@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project beamdicom -->
-<!-- Saved: 2019-04-08, 15:34:26 -->
+<!-- Saved: 2019-04-12, 14:23:33 -->
 <!-- Copyright (C) 2019 ,  -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -43,9 +43,11 @@
     <Source>storage/workflow.py</Source>
     <Source>studyImageViewer/ConvertedPdfImageProvider.py</Source>
     <Source>studyImageViewer/__init__.py</Source>
+    <Source>studyImageViewer/qml_rc.py</Source>
     <Source>studyImageViewer/viewImages.py</Source>
     <Source>test/__init__.py</Source>
     <Source>test/storagetest.py</Source>
+    <Source>ts_rc.py</Source>
     <Source>ui/CenterItemDelegate.py</Source>
     <Source>ui/DicomNetworkSettingWidget.py</Source>
     <Source>ui/HtmlContent.py</Source>
@@ -87,9 +89,9 @@
   <Translations/>
   <Resources>
     <Resource>res/images.qrc</Resource>
-    <Resource>res/ts.qrc</Resource>
     <Resource>resources.qrc</Resource>
     <Resource>studyImageViewer/qml.qrc</Resource>
+    <Resource>ts.qrc</Resource>
   </Resources>
   <Interfaces/>
   <Others>

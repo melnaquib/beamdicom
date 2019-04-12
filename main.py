@@ -1,10 +1,11 @@
 import sys
 from PyQt5.QtCore import QSettings, QThread,  QDir, QSize
+from PyQt5.QtSql import QSqlTableModel
 from PyQt5.QtWidgets import QApplication, QWidget
 import psutil, subprocess, os, logging
 from PyQt5.QtGui import QIcon
-import images_rc
 from ipc.singletonApp import run_once
+from storage.Router import Router
 from ui import systray
 
 
@@ -12,6 +13,13 @@ basepath = os.path.dirname(__file__)
 projectpath = os.path.abspath(os.path.join(basepath, "..", ".."))
 if projectpath not in sys.path:
     sys.path.insert(1, projectpath)
+
+
+def setup_router(app):
+    router = Router(app)
+    app.router = router
+    app.setProperty("router", Router(router))
+
 
 def main():
     # if check_activation() != True:
@@ -55,6 +63,9 @@ def main():
     from storage import storage
     storage.setup()
     st = storage.run_pythread()
+
+    setup_router(app)
+
 
     from ui import ui
     ui.setup()

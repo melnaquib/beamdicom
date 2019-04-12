@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
 <!-- eric6 tasks file for project beamdicom -->
-<!-- Saved: 2019-04-09, 20:07:03 -->
+<!-- Saved: 2019-04-12, 12:47:52 -->
 <Tasks version="6.0">
   <ProjectScanFilter></ProjectScanFilter>
-  <Task priority="1" completed="False" type="1" uid="{8d7cba41-6606-455f-aafc-4dc727fb6832}">
-    <Summary>TODO: not implemented yet</Summary>
-    <Description></Description>
-    <Created>2019-04-09, 20:07:00</Created>
-    <Resource>
-      <Filename>ui/SqlTableView.py</Filename>
-      <Linenumber>49</Linenumber>
-    </Resource>
-  </Task>
 </Tasks>
