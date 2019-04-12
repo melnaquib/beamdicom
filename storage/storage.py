@@ -289,7 +289,7 @@ def run_pythread():
     import threading
     ae_thread = threading.Thread()
     ae_thread.run = ae_run
-    ae_thread.stop = lambda : ae_run.ae.stop()
+    # ae_thread.stop = lambda : ae_run.ae.stop()
     ae_thread.start()
     logger.info('Storage Started')
     return ae_thread

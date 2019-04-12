@@ -7,7 +7,8 @@ from PyQt5.QtGui import QIcon
 from ipc.singletonApp import run_once
 from storage.Router import Router
 from ui import systray
-
+import resources_rc
+import images_rc
 
 basepath = os.path.dirname(__file__)
 projectpath = os.path.abspath(os.path.join(basepath, "..", ".."))
@@ -27,6 +28,7 @@ def main():
     app = QApplication(sys.argv)
     app.setQuitOnLastWindowClosed(False)
     def setup_app_data():
+        print("SETUP APP DATA")
         settings = QSettings(".vendor.ini", QSettings.IniFormat)
         settings.setIniCodec("UTF-8")
         app.setOrganizationName(settings.value("org/name"))
@@ -83,7 +85,7 @@ def main():
     dataset_actions.setup()
 
     e = app.exec_()
-    st.stop()
+    # st.stop()
     try:
         if sys.platform.startswith('win'):
             if proc is not None:
