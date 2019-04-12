@@ -93,9 +93,11 @@ class StoreAE(AE):
 
 
 def get_pacs_parameter(referring_physician):
-
-    from storage.Router import Router
-    r = Router()
+    from PyQt5 import QtWidgets
+    app = QtWidgets.qApp
+    r = app.property("router")
+    # from storage.Router import Router
+    # r = Router()
     id,referring_physician,address,port,aet =  r.match(referring_physician)
     logger.info('Destination Pacs For Referring Physician:{} , address : {}, port : {}, aet : {}'.format(referring_physician,
                                                                                                  address, port, aet))
@@ -196,6 +198,8 @@ def handle_store(event):
     ref_ph_name = ''
     try:
         ref_ph_name = dataset.ReferringPhysicianName
+        ref_ph_name = str(ref_ph_name)
+        logger.info("Received ReferringPhysicianName {}".format(ref_ph_name))
     except:
         logger.error("Dataset not have Referring Physician's Name")
     try:

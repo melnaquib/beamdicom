@@ -153,6 +153,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.licenseDialog = HtmlContent(self)
 
 
+        self.studiesStackedWidget.setCurrentIndex(1)
+
+
         self.routeTable = SqlTableView(self)
         self.studiesStackedWidget.addWidget(self.routeTable)
         self.routeTable.setModel(qApp.property("router").routesModel())
@@ -209,16 +212,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         dlg.setWidget(SettingsWidget())
         dlg.exec_()
 
-    @pyqtSlot(QModelIndex)
-    def on_studiesTableView_doubleClicked(self,index):
-        # study_iuid = self.get_study_iuid(index)
-        # viewImages.open_study_images(study_iuid)
-        study_iuid = self.get_study_iuid_new(index)
-        patient_id = self.get_patient_id(index)
-        patient_name = self.get_patient_name(index)
-        # if StudiesProxyModel.brief_cols['thumbnail'] == index.column():
-        #     print("Thumbnail")
-        viewImages.viewImages(study_iuid,patient_id,patient_name)
+    # @pyqtSlot(QModelIndex)
+    # def on_studiesTableView_doubleClicked(self,index):
+    #     # study_iuid = self.get_study_iuid(index)
+    #     # viewImages.open_study_images(study_iuid)
+    #     study_iuid = self.get_study_iuid_new(index)
+    #     patient_id = self.get_patient_id(index)
+    #     patient_name = self.get_patient_name(index)
+    #     # if StudiesProxyModel.brief_cols['thumbnail'] == index.column():
+    #     #     print("Thumbnail")
+    #     viewImages.viewImages(study_iuid,patient_id,patient_name)
 
     @pyqtSlot(QPoint)
     def on_studiesTableView_customContextMenuRequested(self, point):
@@ -584,7 +587,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     @pyqtSlot(bool)
     def on_rou_tes_ViewAction_toggled(self, value):
-        idx = 2 if value else 0
+        idx = 2 if value else 1
         self.studiesStackedWidget.setCurrentIndex(idx)
 
 

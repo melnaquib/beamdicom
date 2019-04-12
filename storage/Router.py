@@ -17,7 +17,7 @@ class Router(QObject):
     def routesModel(self):
         return self._routesModel
 
-    def match_name(self, name, pat):
+    def match_name(self, pat, name):
         if 0 == len(name):
             return False
         r = fnmatch.fnmatchcase(name, pat)
@@ -27,7 +27,8 @@ class Router(QObject):
         n = self.routesModel().rowCount(QModelIndex())
         for i in range(n):
             ir = self.routesModel().record(i)
-            ireferring_physician = ir.clearValues(referring_physician)
+            # ir.value()
+            ireferring_physician = ir.value("referring_physician")
             if self.match_name(ireferring_physician, referring_physician):
                 return ir.value("id"), ir.value("referring_physician"), ir.value("address"), ir.value("port"), ir.value("aet")
 
