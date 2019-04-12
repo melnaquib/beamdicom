@@ -5,7 +5,7 @@ from pydicom.uid import ExplicitVRLittleEndian, ImplicitVRLittleEndian, \
     ExplicitVRBigEndian, DeflatedExplicitVRLittleEndian, UID
 
 # from pynetdicom import AE, StorageSOPClassList
-from pynetdicom import AE
+from pynetdicom import AE, evt
 # from pynetdicom import pynetdicom_uid_prefix
 from pydicom.uid import ImplicitVRLittleEndian, ExplicitVRLittleEndian, DeflatedExplicitVRLittleEndian, \
     ExplicitVRBigEndian
@@ -50,7 +50,7 @@ def setup_logging():
     s = QSettings()
     if not os.path.exists(s.value("storage/folder")):
         os.makedirs(s.value("storage/folder"))
-    handler = logging.FileHandler(s.value("storage/folder") + QDir.separator() + "dicomrouter.log")
+    handler = logging.FileHandler(s.value("storage/folder") + QDir.separator() + "beamdicom.log")
     logger.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s -  %(module)s.%(funcName)s - %(lineno)d - %(levelname)s - %(message)s')
     handler.setFormatter(formatter)
@@ -92,6 +92,22 @@ class StoreAE(AE):
         return callback(req, rsp, sopClass)
 
 
+def get_pacs_parameter(referring_physician):
+
+    from storage.Router import Router
+    r = Router()
+    id,referring_physician,address,port,aet =  r.match(referring_physician)
+    logger.info('Destination Pacs For Referring Physician:{} , address : {}, port : {}, aet : {}'.format(referring_physician,
+                                                                                                 address, port, aet))
+    return (address, port, aet)
+
+def get_calling_aet():
+    setting = QSettings()
+    return setting.value("storescp/aet")
+
+
+
+
 def handle_store(event):
     dataset = event.dataset
     try:
@@ -104,6 +120,18 @@ def handle_store(event):
                 dataset.Modality, dataset.SOPClassUID, dataset.StudyInstanceUID, dataset.SOPInstanceUID)
         except:
             logger.warning("Received C-Store - error in logging details")
+    try:
+        sop_class = dataset.SOPClassUID
+        sop_instance = dataset.SOPInstanceUID
+    except Exception as exc:
+        # Unable to decode dataset
+        return 0xC210
+
+    try:
+        # Get the elements we need
+        mode_prefix = mode_prefixes[sop_class.name]
+    except KeyError:
+        mode_prefix = 'UN'
 
     study_iuid = dataset.StudyInstanceUID
     foldername = pathes.study_files_path(study_iuid)
@@ -121,6 +149,7 @@ def handle_store(event):
         #     Path=str(foldername + QDir.separator() + dataset.PatientName)+".lnk",
         #     Target=filename
         # )
+    cx = event.context
 
     meta = Dataset()
     meta.MediaStorageSOPClassUID = dataset.SOPClassUID
@@ -134,19 +163,23 @@ def handle_store(event):
     app_number = '3' # meaniniglessly chosen
     meta.impl_class_uid = impl_class_uid_root + app_number + '.' + ver
     meta.ImplementationClassUID = impl_class_uid_root + app_number + '.' + ver
+    meta.TransferSyntaxUID = cx.transfer_syntax
 
 
-    ds = FileDataset(filename, {}, file_meta=meta, preamble=b"\0" * 128)
-    ds.update(dataset)
+    # ds = FileDataset(filename, {}, file_meta=meta, preamble=b"\0" * 128)
+    # ds.update(dataset)
 
-    ds.is_little_endian = True
-    ds.is_implicit_VR = True
+    dataset.file_meta = meta
+    dataset.is_little_endian = cx.transfer_syntax.is_little_endian
+    dataset.is_implicit_VR = cx.transfer_syntax.is_implicit_VR
+
+
 
     status_ds = Dataset()
     status_ds.Status = 0x0000
 
     try:
-        ds.save_as(filename)
+        dataset.save_as(filename, write_like_original=False)
         logger.info("File %s written", filename)
         status_ds.Status = 0x0000
     except IOError:
@@ -160,6 +193,21 @@ def handle_store(event):
     # print(filename)
     from casesActions import dataset_actions
     dataset_actions.on_dataset(pydicom.read_file(filename))
+    ref_ph_name = ''
+    try:
+        ref_ph_name = dataset.ReferringPhysicianName
+    except:
+        logger.error("Dataset not have Referring Physician's Name")
+    try:
+        pacs_param = get_pacs_parameter(ref_ph_name)
+        calling_aet = get_calling_aet()
+        from storage import sending
+        sending_status = sending.send(pacs_param,filename,calling_aet)
+
+        import dicomTasks
+        dicomTasks.updatesopstatus(dataset.SOPInstanceUID, sending_status)
+    except:
+        logger.error('Error in sending or update status for sop iuid')
     return status_ds # Success
 
 def ae_run():

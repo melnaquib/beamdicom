@@ -20,7 +20,7 @@ import numpy as np
 # @app.task
 import logging
 
-logger = logging.getLogger('dicomrouter')
+logger = logging.getLogger('beamdicom')
 
 def processStudyuuid(study_uuid):
     """
@@ -67,3 +67,38 @@ def updatestudystatus(study_uui):
     query.exec_()
     QSqlDatabase.database().commit()
 
+def updatesopstatus(sop_uui, sop_status):
+    from PyQt5.QtSql import QSqlDatabase,QSqlQuery
+    from casesActions.dataset_actions import CaseState
+    QSqlDatabase.database().transaction()
+    status = CaseState.RECIEVED.value
+    query = QSqlQuery()
+    query.prepare("UPDATE sop SET status = :status  WHERE sop_iuid = :sop_iuid")
+    if sop_status:
+        status = CaseState.FORWARDED.value
+    logger.info('Update sop iuid :{} , status: {}'.format(sop_uui,status))
+    query.bindValue(":status", status)
+    # query.bindValue(":to_pacs", bool(True))
+    query.bindValue(":sop_iuid", str(sop_uui))
+    query.exec_()
+    QSqlDatabase.database().commit()
+
+def destinationpacs(referring_physician):
+    from PyQt5.QtSql import QSqlDatabase,QSqlQuery
+    from casesActions.dataset_actions import CaseState
+    QSqlDatabase.database().transaction()
+    query = QSqlQuery()
+    # query.prepare("SELECT address,port,aet FROM routes WHERE referring_physician like '%' :referring_physician  '%'")
+
+
+    # query.bindValue(":referring_physician", referring_physician)
+
+
+    query.exec("SELECT address,port,aet FROM routes WHERE referring_physician like '%{}%'".format(referring_physician))
+    QSqlDatabase.database().commit()
+
+    address = query.value(0)
+    port = query.value(1)
+    aet = query.value(1)
+    logger.info('Destination Pacs For Referring Physician:{} , address : {}, port : {}, aet : {}'.format(referring_physician,address,port,aet))
+    return  (address, port, aet)

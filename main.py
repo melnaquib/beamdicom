@@ -105,7 +105,7 @@ def setup_pynetdicom_logging():
     s = QSettings()
     if not os.path.exists(s.value("storage/folder")):
         os.makedirs(s.value("storage/folder"))
-        # print(s.value("storage/folder") + QDir.separator() + "dicomrouter.log")
+        # print(s.value("storage/folder") + QDir.separator() + "beamdicom.log")
     pynetdicom_logger_handler = logging.FileHandler(s.value("storage/folder") + QDir.separator() + "pynetdicom3.log")
     pynetdicom_logger.setLevel(logging.INFO)
     # create formatter
@@ -119,13 +119,13 @@ def setup_pynetdicom_logging():
 
 
 def setup_logging():
-    logger = logging.getLogger('dicomrouter')
+    logger = logging.getLogger('beamdicom')
     s = QSettings()
     print(s.value("storage/folder"))
     if not os.path.exists(s.value("storage/folder")):
         os.makedirs(s.value("storage/folder"))
-    # print(s.value("storage/folder") + QDir.separator() + "dicomrouter.log")
-    handler = logging.FileHandler(s.value("storage/folder") + QDir.separator() + "dicomrouter.log")
+    # print(s.value("storage/folder") + QDir.separator() + "beamdicom.log")
+    handler = logging.FileHandler(s.value("storage/folder") + QDir.separator() + "beamdicom.log")
     logger.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(module)s.%(funcName)s - %(lineno)d - %(levelname)s - %(message)s')
     handler.setFormatter(formatter)

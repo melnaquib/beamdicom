@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/melnaquib/work/client/reportly/code/beamdicom/ui/mainwindow.ui'
+# Form implementation generated from reading ui file '/media/abdelrahman/data1/mywork/code/PycharmProjects/beamdicom/ui/mainwindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.10.1
+# Created by: PyQt5 UI code generator 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -187,7 +188,9 @@ class Ui_MainWindow(object):
         self.actionDelete_Study_Folder.setText(_translate("MainWindow", "Delete Study"))
         self.rou_tes_ViewAction.setText(_translate("MainWindow", "Rou&tes View"))
 
+
 import images_rc
+
 
 if __name__ == "__main__":
     import sys
@@ -197,4 +200,3 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-

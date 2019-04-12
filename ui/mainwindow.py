@@ -195,11 +195,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         return
         query = QSqlQuery()
         query.exec(_TOTAL_CASES)
-        while (query.next()):
-            self.totalCasesLabel.setText('Total Cases : ' + str(query.value(0)))
+        # while (query.next()):
+        #     self.totalCasesLabel.setText('Total Cases : ' + str(query.value(0)))
         query.exec(_TOTAL_IMAGES)
-        while (query.next()):
-            self.totalImagesLabel.setText('Total Images : ' + str(query.value(0)))
+        # while (query.next()):
+        #     self.totalImagesLabel.setText('Total Images : ' + str(query.value(0)))
 
     @pyqtSlot()
     def on_action_Settings_triggered(self):
