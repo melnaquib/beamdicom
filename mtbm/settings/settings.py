@@ -8,7 +8,7 @@ logger = logging.getLogger('dicomrouter')
 def setup():
     logger.info('Starting Setup Settings')
     settings = QSettings()
-    defaultSettings = QSettings(":/settings/defaultSettings.ini", QSettings.IniFormat)
+    defaultSettings = QSettings("defaultSettings.ini", QSettings.IniFormat)
     print(defaultSettings.status())
     print(defaultSettings.allKeys())
     logger.info('Default setting path: {}'.format(defaultSettings.fileName()))
@@ -28,7 +28,7 @@ def setup():
             v = defaultSettings.value(k)
             settings.setValue(k, v)
     # settings.setValue("db/name", settings.value("storage/folder") + QDir.separator() + "db.sqlite")
-    setupSettings = QSettings("settings/setupSettings.ini", QSettings.IniFormat)
+    setupSettings = QSettings("setupSettings.ini", QSettings.IniFormat)
     logger.info('Setup Setting File: {}'.format(setupSettings.fileName()))
     logger.info('Setup Setting keys and values')
     ############## set values always as setup
