@@ -3,7 +3,7 @@ from PyQt5.QtGui import QRegion, QPainter, QPalette, QColor
 from PyQt5.QtCore import QPoint, QSize, Qt
 
 
-from ui.StudyItemWidget import StudyItemWidget
+from mtbm.ui.StudyItemWidget import StudyItemWidget
 
 class StudyItemDelegate(QStyledItemDelegate):
     def __init__(self, parent=None):

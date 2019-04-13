@@ -13,19 +13,19 @@ import sys, os, shutil
 import pydicom
 from numpy.core.records import record
 
-from storage import pathes
-from casesActions.study_actions import on_study
-from ui.SqlTableView import SqlTableView
-from ui.StudiesProxyModel import StudiesProxyModel
-from ui.Ui_mainwindow import Ui_MainWindow
+from mtbm.storage import pathes
+from mtbm.casesActions.study_actions import on_study
+from mtbm.ui.SqlTableView import SqlTableView
+from mtbm.ui.StudiesProxyModel import StudiesProxyModel
+from mtbm.ui.Ui_mainwindow import Ui_MainWindow
 from pydicom.dataset import Dataset, FileDataset
 # from pynetdicom3 import pynetdicom_uid_prefix
-from studyImageViewer import viewImages
+# from beamdicom.studyImageViewer import viewImages
 
 import images_rc
 
-from ui.StudyItemDelegate import StudyItemDelegate
-from ui.HtmlContent import HtmlContent
+from mtbm.ui.StudyItemDelegate import StudyItemDelegate
+from mtbm.ui.HtmlContent import HtmlContent
 _UPDATEUI_TIMEOUT = 15000
 _BASIC_SQL_QUERY = """
 SELECT 
@@ -280,17 +280,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         print('View Images, patient id : {} , patient name : {}'.format(patient_id , patient_name))
         if study_iuid == '':
             return
-        viewImages.viewImages(study_iuid,patient_id, patient_name)
+        # viewImages.viewImages(study_iuid,patient_id, patient_name)
 
     @pyqtSlot()
     def on_actionOpen_Images_Folder_triggered(self):
         study_iuid = self.get_selected_study_iuid()
-        viewImages.open_study_images(study_iuid)
+        # viewImages.open_study_images(study_iuid)
 
     @pyqtSlot()
     def on_actionOpen_Study_Folder_triggered(self):
         study_iuid = self.get_selected_study_iuid()
-        viewImages.open_study_files(study_iuid)
+        # viewImages.open_study_files(study_iuid)
 
     @pyqtSlot()
     def on_actionDelete_Study_Folder_triggered(self):
@@ -580,7 +580,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         patient_name = self.get_patient_name(index)
         # if StudiesProxyModel.brief_cols['thumbnail'] == index.column():
         #     print("Thumbnail")
-        viewImages.viewImages(study_iuid,patient_id,patient_name)
+        # viewImages.viewImages(study_iuid,patient_id,patient_name)
         # else:
         #     viewImages.open_study_images(study_iuid)
 

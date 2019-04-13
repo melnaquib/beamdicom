@@ -1,6 +1,6 @@
 from PyQt5.QtSql import QSqlTableModel
 
-from storage.Router import Router
+from mtbm.storage.Router import Router
 from .mainwindow import MainWindow
 
 import sys

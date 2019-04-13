@@ -9,7 +9,7 @@ from PyQt5.QtWidgets import QWidget, QFileDialog
 from PyQt5.QtCore import QSettings
 from .DicomNetworkSettingWidget import DicomNetworkSettingWidget
 
-from ui.Ui_SettingWidgetIpR import Ui_Form
+from mtbm.ui.Ui_SettingWidgetIpR import Ui_Form
 import utils
 
 class SettingsWidget(QWidget, Ui_Form):

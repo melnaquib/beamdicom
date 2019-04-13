@@ -16,8 +16,8 @@ import sys
 import pydicom
 
 import os
-from casesActions.study_actions import on_study
-from storage import pathes
+from mtbm.casesActions.study_actions import on_study
+from mtbm.storage import pathes
 import subprocess
 
 pynetdicom_logger = logging.getLogger('pynetdicom')
@@ -25,7 +25,7 @@ pynetdicom_logger.setLevel(logging.DEBUG)
 # pynetdicom_logger.setLevel(logging.DEBUG)
 
 from PyQt5.QtCore import QThread, QSettings, QTimer,QDir,QFileInfo
-from storage.pathes import get_storage_folder, get_folder_mode
+from mtbm.storage.pathes import get_storage_folder, get_folder_mode
 
 import os
 

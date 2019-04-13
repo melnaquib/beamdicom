@@ -7,7 +7,7 @@ Module implementing DicomNetworkSettingWidget.
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QWidget
 
-from ui.Ui_DicomNetworkSettingWidget import Ui_Form
+from mtbm.ui.Ui_DicomNetworkSettingWidget import Ui_Form
 
 
 class DicomNetworkSettingWidget(QWidget, Ui_Form):

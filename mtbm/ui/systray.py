@@ -9,7 +9,7 @@ def setup(action_show_window, action_import, action_exit):
     cxt_menu = QMenu()
     cxt_menu.addAction(action_show_window)
     cxt_menu.addSeparator()
-    cxt_menu.addAction(action_import)
+    # cxt_menu.addAction(action_import)
     cxt_menu.addSeparator()
     cxt_menu.addAction(action_exit)
 

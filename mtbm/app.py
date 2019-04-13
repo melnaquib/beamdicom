@@ -4,11 +4,31 @@ from PyQt5.QtSql import QSqlTableModel
 from PyQt5.QtWidgets import QApplication, QWidget
 import psutil, subprocess, os, logging
 from PyQt5.QtGui import QIcon
-from ipc.singletonApp import run_once
-from storage.Router import Router
-from ui import systray
+from mtbm.ipc.singletonApp import run_once
+from mtbm.storage.Router import Router
+from mtbm.ui import systray
 import resources_rc
 import images_rc
+
+# import ipc
+# # import sqlite3
+# import requests
+# import casesActions
+# import db
+# import image
+# import settings
+# import storage
+# import ui
+# ipc
+# #sqlite3
+# requests
+# casesActions
+# db
+# image
+# settings
+# storage
+# ui
+
 
 basepath = os.path.dirname(__file__)
 projectpath = os.path.abspath(os.path.join(basepath, "..", ".."))
@@ -40,12 +60,12 @@ def main():
     setup_app_data()
 
 
-    from settings import settings
+    from mtbm.settings import settings
     settings.setup()
 
     logger = setup_logging()
 
-    from db import db
+    from mtbm.db import db
     db.setup()
 
     ok, server, port = run_once()
@@ -62,14 +82,14 @@ def main():
 
 
 
-    from storage import storage
+    from mtbm.storage import storage
     storage.setup()
     st = storage.run_pythread()
 
     setup_router(app)
 
 
-    from ui import ui
+    from mtbm.ui import ui
     ui.setup()
     mainwindow = ui.run()
     app.setProperty("mainwindow", mainwindow)
@@ -81,7 +101,7 @@ def main():
     # from casesActions import StudyPostProcessor
     # studyPost = StudyPostProcessor.setup()
 
-    from casesActions import dataset_actions
+    from mtbm.casesActions import dataset_actions
     dataset_actions.setup()
 
     e = app.exec_()
