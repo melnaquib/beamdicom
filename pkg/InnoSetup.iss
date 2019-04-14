@@ -6,7 +6,7 @@
 #define MyAppVersion "1.0"
 #define MyAppPublisher "Beam DICOM by Medly Tech."
 #define MyAppURL "http://www.MedlyTech.com"
-#define MyAppExeName "app.exe"
+#define MyAppExeName "beamdicom.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -91,8 +91,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: dontinheritcheck
 
 [Files]
-Source: "C:\work\beamdicom\dist\app\app.exe"; DestDir: "{app}"; Flags: ignoreversion ;
-Source: "C:\work\beamdicom\dist\app\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs ;
+Source: "C:\work\beamdicom\dist\beamdicom\beamdicom.exe"; DestDir: "{app}"; Flags: ignoreversion ;
+Source: "C:\work\beamdicom\dist\beamdicom\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs ;
 Source: "C:\work\beamdicom\logo.bmp"; DestDir: "{app}"; Flags:ignoreversion recursesubdirs createallsubdirs ;
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 

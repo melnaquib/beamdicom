@@ -105,7 +105,7 @@ def main():
     dataset_actions.setup()
 
     e = app.exec_()
-    # st.stop()
+    st.stop()
     try:
         if sys.platform.startswith('win'):
             if proc is not None:
