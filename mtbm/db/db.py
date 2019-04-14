@@ -5,7 +5,7 @@ from PyQt5.QtSql import QSqlDatabase, QSqlQuery, QSqlError
 
 from . import cfg
 import os, logging
-_MIGRATION_FILENAME_TMPL = "db"+QDir.separator()+"migration"+QDir.separator()+"{}_{}.sql"
+_MIGRATION_FILENAME_TMPL ="mtbm" + QDir.separator() + "db"+QDir.separator()+"migration"+QDir.separator()+"{}_{}.sql"
 
 logger = logging.getLogger('dicomrouter')
 

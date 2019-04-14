@@ -69,7 +69,7 @@ def updatestudystatus(study_uui):
 
 def updatesopstatus(sop_uui, sop_status):
     from PyQt5.QtSql import QSqlDatabase,QSqlQuery
-    from casesActions.dataset_actions import CaseState
+    from mtbm.casesActions.dataset_actions import CaseState
     QSqlDatabase.database().transaction()
     status = CaseState.RECIEVED.value
     query = QSqlQuery()

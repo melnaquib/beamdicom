@@ -6,7 +6,7 @@
 #define MyAppVersion "1.0"
 #define MyAppPublisher "Beam DICOM by Medly Tech."
 #define MyAppURL "http://www.MedlyTech.com"
-#define MyAppExeName "beamdicom.exe"
+#define MyAppExeName "app.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -22,7 +22,7 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DisableProgramGroupPage=yes
-OutputBaseFilename=dicom_converter_installer
+OutputBaseFilename=beam_dicom_installer
 Compression=lzma
 SolidCompression=yes
 OutputDir=c:\work\sw\setup
@@ -30,9 +30,10 @@ SetupIconFile=logo.ico
 ;WizardImageFile=logo.bmp
 WizardSmallImageFile=logo_small.bmp
 
+
 [INI]
 
-Filename: {app}\settings\setupSettings.ini; Section: storage; Key: folder; String: {code:GetDicomStoragePath}
+Filename: {app}\mtbm\settings\setupSettings.ini; Section: storage; Key: folder; String: {code:GetDicomStoragePath}
 
 
 [code]
@@ -90,9 +91,9 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: dontinheritcheck
 
 [Files]
-Source: "c:\work\code\beamdicom\dist\beamdicom\beamdicom.exe"; DestDir: "{app}"; Flags: ignoreversion ;
-Source: "c:\work\code\beamdicom\dist\beamdicom\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs ;
-Source: "c:\work\code\beamdicom\logo.bmp"; DestDir: "{app}"; Flags:ignoreversion recursesubdirs createallsubdirs ;
+Source: "C:\work\beamdicom\dist\app\app.exe"; DestDir: "{app}"; Flags: ignoreversion ;
+Source: "C:\work\beamdicom\dist\app\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs ;
+Source: "C:\work\beamdicom\logo.bmp"; DestDir: "{app}"; Flags:ignoreversion recursesubdirs createallsubdirs ;
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

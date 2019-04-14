@@ -144,7 +144,7 @@ class Ui_Form(object):
         self.cnvDirBrowsePushButton.setText(_translate("Form", "Browse..."))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.ConversionTab), _translate("Form", "Conversion"))
 
-from DicomNetworkSettingWidget import DicomNetworkSettingWidget
+from mtbm.uiDicomNetworkSettingWidget import DicomNetworkSettingWidget
 
 if __name__ == "__main__":
     import sys

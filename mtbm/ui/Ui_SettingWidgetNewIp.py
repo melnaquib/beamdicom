@@ -136,7 +136,7 @@ class Ui_Form(object):
         self.groupBox.setTitle(_translate("Form", "Network"))
         self.label_7.setText(_translate("Form", "Ip Address"))
 
-from DicomNetworkSettingWidget import DicomNetworkSettingWidget
+from mtbm.ui.DicomNetworkSettingWidget import DicomNetworkSettingWidget
 
 if __name__ == "__main__":
     import sys

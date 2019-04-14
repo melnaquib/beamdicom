@@ -3,6 +3,6 @@
     <file>res/about.html</file>
     <file>res/help.html</file>
     <file>res/license.html</file>
-    <file>settings/defaultSettings.ini</file>
+    <file>mtbm/settings/defaultSettings.ini</file>
   </qresource>
 </RCC>

@@ -19,7 +19,7 @@ def dicomfiles(study_uuid):
             fnames.append(os.path.join(root, name))
     return fnames
 
-from storage.pathes import get_folder_mode, get_storage_folder
+from mtbm.storage.pathes import get_folder_mode, get_storage_folder
 from PyQt5.QtCore import QFileInfo
 import subprocess
 import logging
@@ -49,7 +49,7 @@ def create_patient_symbolic_link(study_folder, patient_id, patient_name):
                 logger.warning('Can not create symbolic link for study folder: ', study_folder)
 
 
-from storage.pathes import study_files_path
+from mtbm.storage.pathes import study_files_path
 
 def study_dicom_files(study_uuid):
     path = study_files_path(study_uuid)

@@ -26,6 +26,18 @@ import images_rc
 
 from mtbm.ui.StudyItemDelegate import StudyItemDelegate
 from mtbm.ui.HtmlContent import HtmlContent
+
+from mtbm.ui.SettingsWidget import SettingsWidget
+from mtbm.ui.WrapperDialog import WrapperDialog
+from mtbm.storage.pathes import get_folder_mode
+from mtbm.storage import workflow
+from mtbm.ui.dragdropbtn import Button
+from mtbm.ui.WrapperDialog import WrapperDialog
+from mtbm.casesActions import dataset_actions
+from utils import create_patient_symbolic_link
+from PyQt5.QtWidgets import QFileDialog
+from PyQt5.QtCore import QSettings
+
 _UPDATEUI_TIMEOUT = 15000
 _BASIC_SQL_QUERY = """
 SELECT 
@@ -206,8 +218,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     @pyqtSlot()
     def on_action_Settings_triggered(self):
-        from ui.SettingsWidget import SettingsWidget
-        from ui.WrapperDialog import WrapperDialog
         dlg = WrapperDialog()
         dlg.setWidget(SettingsWidget())
         dlg.exec_()
@@ -237,7 +247,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         proxy_index = self.proxyModel.mapToSource(index)
         row = proxy_index.row()
         record = self.studiesModel.record(row)
-        from storage.pathes import get_folder_mode
+
         mode = get_folder_mode()
         if mode =='PatientID':
             column_name = 'ID'
@@ -303,7 +313,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         record = self.studiesModel.record(row)
         study_iuid = record.value('study_iuid')
         print("Delete Study iuid : ".format(study_iuid))
-        from storage import workflow
         workflow.study_hide(study_iuid)
 
 
@@ -399,8 +408,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     @pyqtSlot()
     def on_action_DragDrop_triggered(self):
-        from ui.dragdropbtn import Button
-        from ui.WrapperDialog import WrapperDialog
         dlg = WrapperDialog()
         btn = Button(self)
         btn.setIcon(QIcon(":/resources/drag.png"))
@@ -430,7 +437,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     @pyqtSlot()
     def on_actionImport_triggered(self):
-        from PyQt5.QtWidgets import QFileDialog
+
         import os
         my_dir = QFileDialog.getExistingDirectory(
             self,
@@ -481,7 +488,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.delete_tmp_files(tmp_files)
 
     def delete_tmp_files(self,tmp_files):
-        from PyQt5.QtCore import QSettings
+
         settings = QSettings()
         tmp_folder = settings.value('storage/tmp')
         if tmp_folder:
@@ -493,7 +500,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                     print("Error In Remove Tmp Files")
 
     def save_dcm_file(self, file):
-        from PyQt5.QtCore import QSettings
+
         settings = QSettings()
         tmp_folder = settings.value('storage/tmp')
         if not os.path.exists(tmp_folder):
@@ -528,7 +535,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         #
         filename = foldername + QDir.separator() + str(dataset.SOPInstanceUID)
         if sys.platform.startswith('win'):
-            from utils import create_patient_symbolic_link
+
             create_patient_symbolic_link(foldername, dataset.PatientID, dataset.PatientName)
 
         meta = Dataset()
@@ -560,7 +567,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         except:
             return 0xA700  # Failed - Out of Resources
         # print(filename)
-        from casesActions import dataset_actions
         dataset_actions.on_dataset(pydicom.read_file(filename))
 
     def resizeColumn(self, event):

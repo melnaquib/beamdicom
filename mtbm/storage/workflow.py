@@ -1,9 +1,9 @@
 from PyQt5.QtSql import QSqlDatabase, QSqlQuery
-from casesActions.dataset_actions import CaseState
+from mtbm.casesActions.dataset_actions import CaseState
 
 import shutil
-from storage import pathes
-from storage.pathes import get_folder_mode, get_storage_folder, get_images_folder
+from mtbm.storage import pathes
+from mtbm.storage.pathes import get_folder_mode, get_storage_folder, get_images_folder
 from PyQt5.QtCore import QDir, QSettings
 import logging
 import os

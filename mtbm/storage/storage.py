@@ -28,6 +28,9 @@ from PyQt5.QtCore import QThread, QSettings, QTimer,QDir,QFileInfo
 from mtbm.storage.pathes import get_storage_folder, get_folder_mode
 
 import os
+from PyQt5 import QtWidgets
+from mtbm.casesActions import dataset_actions
+from mtbm.storage import sending
 
 from pynetdicom import (
     AE,
@@ -93,7 +96,7 @@ class StoreAE(AE):
 
 
 def get_pacs_parameter(referring_physician):
-    from PyQt5 import QtWidgets
+
     app = QtWidgets.qApp
     r = app.property("router")
     # from storage.Router import Router
@@ -193,7 +196,7 @@ def handle_store(event):
         status_ds.Status = 0xA701
         return status_ds # Failed - Out of Resources
     # print(filename)
-    from casesActions import dataset_actions
+
     dataset_actions.on_dataset(pydicom.read_file(filename))
     ref_ph_name = ''
     try:
@@ -205,7 +208,7 @@ def handle_store(event):
     try:
         pacs_param = get_pacs_parameter(ref_ph_name)
         calling_aet = get_calling_aet()
-        from storage import sending
+
         sending_status = sending.send(pacs_param,filename,calling_aet)
 
         import dicomTasks
@@ -228,6 +231,7 @@ def ae_run():
     ae_title = settings.value('aet')
     ae_port = int(settings.value('port'))
     max_conn = int(settings.value('max_conn'))
+    bind_address = '0.0.0.0'
 
     # FIXEME check Port
     ae = StoreAE(ae_title=ae_title,
@@ -262,7 +266,7 @@ def ae_run():
     # ae.on_c_store = _on_c_store
     handlers = [(evt.EVT_C_STORE, handle_store)]
     try:
-        ae.start_server((ae_title,ae_port), evt_handlers=handlers)
+        ae.start_server((bind_address,ae_port), evt_handlers=handlers)
         logger.info(' "Started AE... AET:{0}, port:{1}".format(aet, port)')
     except PermissionError as pe:
         logger.critical('AE cannot start (PermissionError)', exc_info=True)

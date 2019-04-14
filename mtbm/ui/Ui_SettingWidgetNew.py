@@ -120,7 +120,7 @@ class Ui_Form(object):
         self.dicomservergroupBox.setTitle(_translate("Form", "Dicom Server"))
         self.dicomsendergroupBox.setTitle(_translate("Form", "Dicom Sender"))
 
-from DicomNetworkSettingWidget import DicomNetworkSettingWidget
+from mtbm.ui.DicomNetworkSettingWidget import DicomNetworkSettingWidget
 
 if __name__ == "__main__":
     import sys

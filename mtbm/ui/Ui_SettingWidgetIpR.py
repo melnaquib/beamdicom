@@ -71,7 +71,7 @@ class Ui_Form(object):
         self.logFldrBtn.setText(_translate("Form", "......."))
         self.dicomservergroupBox.setTitle(_translate("Form", "Dicom Server"))
 
-from ui.DicomNetworkSettingWidget import DicomNetworkSettingWidget
+from mtbm.ui.DicomNetworkSettingWidget import DicomNetworkSettingWidget
 
 if __name__ == "__main__":
     import sys
