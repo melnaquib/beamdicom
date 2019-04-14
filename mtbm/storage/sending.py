@@ -2,7 +2,7 @@ import sys
 
 from pydicom import read_file
 from pydicom.uid import ExplicitVRLittleEndian, ImplicitVRLittleEndian, \
-    ExplicitVRBigEndian, DeflatedExplicitVRLittleEndian,RLELossless,JPEGBaseline
+    ExplicitVRBigEndian, DeflatedExplicitVRLittleEndian,RLELossless,JPEGBaseline, JPEGBaseline, JPEGBaseLineLossy8bit, JPEGBaseLineLossy12bit, JPEGLossless, JPEG2000CompressedPixelTransferSyntaxes
 
 from pynetdicom import AE, StoragePresentationContexts
 # from pynetdicom import StorageSOPClassList
@@ -16,7 +16,7 @@ import os
 transfer_syntax = [ExplicitVRLittleEndian,
                    ImplicitVRLittleEndian,
                    DeflatedExplicitVRLittleEndian,
-                   ExplicitVRBigEndian,
+                   ExplicitVRBigEndian,JPEGBaseline
                    ]
 transfer_syntax_rle = [
                    RLELossless]
@@ -58,7 +58,8 @@ def send(pacs_param,dcmfile_in,calling_aet):
     transfer_syntax = [ImplicitVRLittleEndian,
                        ExplicitVRLittleEndian,
                        DeflatedExplicitVRLittleEndian,
-                       ExplicitVRBigEndian]
+                       ExplicitVRBigEndian,JPEGBaseline ,
+                       JPEGBaseline, JPEGBaseLineLossy8bit, JPEGBaseLineLossy12bit, JPEGLossless]
     ae = AE(ae_title=calling_aet)
 
     for context in StoragePresentationContexts:

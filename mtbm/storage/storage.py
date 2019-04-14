@@ -8,7 +8,7 @@ from pydicom.uid import ExplicitVRLittleEndian, ImplicitVRLittleEndian, \
 from pynetdicom import AE, evt
 # from pynetdicom import pynetdicom_uid_prefix
 from pydicom.uid import ImplicitVRLittleEndian, ExplicitVRLittleEndian, DeflatedExplicitVRLittleEndian, \
-    ExplicitVRBigEndian
+    ExplicitVRBigEndian, JPEGBaseline, JPEGBaseLineLossy8bit, JPEGBaseLineLossy12bit, JPEGLossless, JPEG2000CompressedPixelTransferSyntaxes
 from pynetdicom import sop_class
 
 import logging
@@ -221,7 +221,9 @@ def ae_run():
     transfer_syntax = [ImplicitVRLittleEndian,
                        ExplicitVRLittleEndian,
                        DeflatedExplicitVRLittleEndian,
-                       ExplicitVRBigEndian]
+                       ExplicitVRBigEndian,
+                       JPEGBaseline,
+                       JPEGBaseLineLossy8bit, JPEGBaseLineLossy12bit, JPEGLossless]
     scu_sop_classes = []
     scp_sop_classes = [sop_class.VerificationSOPClass]
     # scp_sop_classes.extend(sop_class.STORAGE_CLASS_LIST)
@@ -231,7 +233,7 @@ def ae_run():
     ae_title = settings.value('aet')
     ae_port = int(settings.value('port'))
     max_conn = int(settings.value('max_conn'))
-    bind_address = '0.0.0.0'
+    bind_address = settings.value('bind_address')
 
     # FIXEME check Port
     ae = StoreAE(ae_title=ae_title,
