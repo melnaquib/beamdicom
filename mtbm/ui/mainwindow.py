@@ -418,20 +418,20 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     @pyqtSlot()
     def on_action_About_triggered(self):
-        self.aboutDialog.setContentFromFile("qrc:/res/about.html")
+        # self.aboutDialog.setContentFromFile("qrc:/res/about.html")
         self.aboutDialog.textBrowser.setOpenExternalLinks(True)
         self.aboutDialog.setWindowTitle("About Us")
         self.aboutDialog.show()
 
     @pyqtSlot()
     def on_action_License_triggered(self):
-        self.licenseDialog.setContentFromFile("qrc:/res/license.html")
+        # self.licenseDialog.setContentFromFile("qrc:/res/license.html")
         self.licenseDialog.setWindowTitle("License")
         self.licenseDialog.show()
 
     @pyqtSlot()
     def on_action_Help_triggered(self):
-        self.helpDialog.setContentFromFile("qrc:/res/help.html")
+        # self.helpDialog.setContentFromFile("qrc:/res/help.html")
         self.helpDialog.textBrowser.setOpenExternalLinks(True)
         self.helpDialog.setWindowTitle("Help")
         self.helpDialog.show()

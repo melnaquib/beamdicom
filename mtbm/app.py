@@ -58,7 +58,7 @@ def main():
         app.setApplicationVersion(settings.value("app/version"))
 
     setup_app_data()
-
+    app.setApplicationDisplayName("Beam Dicom")
 
     from mtbm.settings import settings
     settings.setup()
