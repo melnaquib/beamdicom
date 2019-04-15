@@ -95,7 +95,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # self.tableContextMenu.addAction(self.actionOpen_Images_Folder)
         # self.tableContextMenu.addAction(self.actionOpen_Study_Folder)
         self.tableContextMenu.addSeparator()
-        self.tableContextMenu.addAction(self.actionDelete_Study_Folder)
+        # self.tableContextMenu.addAction(self.actionDelete_Study_Folder)
 
         self.studiesModel = QSqlQueryModel()
         sql_str = _BASIC_SQL_QUERY +  _BASIC_SQL_QUERY_WHERE + _BASIC_SQL_QUERY_GROUP
@@ -171,6 +171,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.routeTable = SqlTableView(self)
         self.studiesStackedWidget.addWidget(self.routeTable)
         self.routeTable.setModel(qApp.property("router").routesModel())
+        self.actionView_Images.setVisible(False)
 
 
     def hidecols(self):

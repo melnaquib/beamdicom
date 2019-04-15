@@ -64,6 +64,7 @@ def main():
     settings.setup()
 
     logger = setup_logging()
+    setup_pynetdicom_logging()
 
     from mtbm.db import db
     db.setup()
@@ -122,14 +123,14 @@ def kill_proc_tree(pid , including_parent = True):
         parent.kill()
 
 def setup_pynetdicom_logging():
-    pynetdicom_logger = logging.getLogger("pynetdicom3")
+    pynetdicom_logger = logging.getLogger("pynetdicom")
     # create file handler
     s = QSettings()
     if not os.path.exists(s.value("storage/folder")):
         os.makedirs(s.value("storage/folder"))
         # print(s.value("storage/folder") + QDir.separator() + "beamdicom.log")
-    pynetdicom_logger_handler = logging.FileHandler(s.value("storage/folder") + QDir.separator() + "pynetdicom3.log")
-    pynetdicom_logger.setLevel(logging.INFO)
+    pynetdicom_logger_handler = logging.FileHandler(s.value("storage/folder") + QDir.separator() + "pynetdicom.log")
+    pynetdicom_logger.setLevel(logging.DEBUG)
     # create formatter
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     pynetdicom_logger_handler.setFormatter(formatter)
