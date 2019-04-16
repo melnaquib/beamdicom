@@ -113,6 +113,7 @@ def get_calling_aet():
 
 
 
+threads = {}
 
 def handle_store(event):
     dataset = event.dataset
@@ -207,13 +208,11 @@ def handle_store(event):
     except:
         logger.error("Dataset not have Referring Physician's Name")
     try:
-        pacs_param = get_pacs_parameter(ref_ph_name)
-        calling_aet = get_calling_aet()
 
-        sending_status = sending.send(pacs_param,filename,calling_aet)
-
-        import dicomTasks
-        dicomTasks.updatesopstatus(dataset.SOPInstanceUID, sending_status)
+        import threading
+        t = threading.Thread(target=send, args=(dataset, ref_ph_name, filename), daemon=True)
+        threads[filename] = t
+        t.start()
     except:
         logger.error('Error in sending or update status for sop iuid')
     return status_ds # Success
@@ -361,3 +360,10 @@ def create_patient_symbolic_link(study_folder, patient_id, patient_name):
 
 
 
+def send(ds, ref_ph_name,dcm_file_path):
+    pacs_param = get_pacs_parameter(ref_ph_name)
+    calling_aet = get_calling_aet()
+    sending_status = sending.send(pacs_param,dcm_file_path,calling_aet)
+    import dicomTasks
+    dicomTasks.updatesopstatus(ds.SOPInstanceUID, sending_status)
+    del threads[dcm_file_path]

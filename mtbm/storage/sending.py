@@ -10,7 +10,7 @@ from pynetdicom import AE, StoragePresentationContexts
 from PyQt5.QtCore import QSettings, QStandardPaths, QDir
 import logging
 import os
-
+from pydicom.uid import UID
 
 
 transfer_syntax = [ExplicitVRLittleEndian,
@@ -44,7 +44,7 @@ def setup_logging():
 
 logger = setup_logging()
 
-def send(pacs_param,dcmfile_in,calling_aet):
+def send( pacs_param,dcmfile_in,calling_aet):
     # check_dcm_file
     # Bind to port 0, OS will pick an available port
     # , peer = 'localhost', port = 11112, called_aet = 'ANYSCP'
@@ -55,15 +55,20 @@ def send(pacs_param,dcmfile_in,calling_aet):
     if not called_aet:
         called_aet = 'ANYSCP'
 
-    transfer_syntax = [ImplicitVRLittleEndian,
-                       ExplicitVRLittleEndian,
-                       DeflatedExplicitVRLittleEndian,
-                       ExplicitVRBigEndian,JPEGBaseline ,
-                       JPEGBaseline, JPEGBaseLineLossy8bit, JPEGBaseLineLossy12bit, JPEGLossless]
-    ae = AE(ae_title=calling_aet)
+    # transfer_syntax = [ImplicitVRLittleEndian,
+    #                    ExplicitVRLittleEndian,
+    #                    DeflatedExplicitVRLittleEndian,
+    #                    ExplicitVRBigEndian]
 
-    for context in StoragePresentationContexts:
-        ae.add_requested_context(context.abstract_syntax, transfer_syntax)
+    ae = AE(ae_title=calling_aet)
+    settings = QSettings()
+    settings.beginGroup('storescu')
+    ae.maximum_pdu_size = int(settings.value('max_pdu'))
+    ae.network_timeout = int(settings.value('network_timeout'))
+    ae.acse_timeout = int(settings.value('acse_timeout'))
+    ae.dimse_timeout = int(settings.value('dimse_timeout'))
+    settings.endGroup()
+
 
     try:
         f = open(dcmfile_in, 'rb')
@@ -72,6 +77,10 @@ def send(pacs_param,dcmfile_in,calling_aet):
     except IOError:
         print('Cannot read input file {0!s}'.format(dcmfile_in))
         sys.exit()
+
+
+    for context in StoragePresentationContexts:
+        ae.add_requested_context(context.abstract_syntax, UID(dataset.file_meta.TransferSyntaxUID))
 
     # Request association with remote
     assoc = ae.associate(peer, port,  ae_title=called_aet)

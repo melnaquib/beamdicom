@@ -29,7 +29,7 @@ def processStudyuuid(study_uuid):
     :return: map of db flag column names, and whether they succeeded
     """
     res = {}
-    from image.images import study_dcm2img
+    from mtbm.image.images import study_dcm2img
     logger.info('Starting Converion for study iuid :{}'.format(study_uuid))
     ok = study_dcm2img(study_uuid)
     res["to_image"] = ok
